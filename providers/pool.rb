@@ -131,7 +131,8 @@ def configure
 
     # root items
     is_new_managed_runtime_version = new_value?(doc.root, 'APPPOOL/@RuntimeVersion', "v#{new_resource.runtime_version}")
-
+    is_new_pipeline_mode = new_value?(doc.root, 'APPPOOL/@PipelineMode'.capitalize, "#{new_resource.pipeline_mode}".to_s.capitalize)
+    
     # add items
     is_new_start_mode = new_value?(doc.root, 'APPPOOL/add/@startMode', new_resource.start_mode.to_s)
     is_new_auto_start = new_value?(doc.root, 'APPPOOL/add/@autoStart', new_resource.auto_start.to_s)
